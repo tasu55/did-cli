@@ -24,7 +24,6 @@ async function main() {
     .description('store <jwtfile> to local dwn')
     .action(async (file: string) => {
       console.log(`specified file: ${file}!`)
-      await web5tutorial(web5, did)
     })
   program
     .command('send <recordid> <todid>')
@@ -45,7 +44,12 @@ async function main() {
     .action((rid: string) => {
       console.log(`specified record id: ${rid}!`)
     })
-
+  program
+    .command('tutorial')
+    .description('web5 tutorial')
+    .action(async () => {
+      await web5tutorial(web5, did)
+    })
   await program.parseAsync(process.argv)
   process.exit(0)
 }
